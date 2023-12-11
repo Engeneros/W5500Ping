@@ -1,6 +1,6 @@
 //D:\D\Prj\SoloPeD\W5500\W5500Ping\Src\MaineFile.cpp
 #include <PinOut.h>
-#include <stm32f10x.h>
+//#include <stm32f10x.h>
 //void ADS1216_Initialisation() {
 //    RCC->APB2ENR |= (1 << 14) | (0xF << 2);
 //	SetPortToOutput(GPIOA, 3); // CS ADS
@@ -20,7 +20,7 @@
 
 int main ()
 {
-	RCC->APB2ENR |= (1 << 14) | (0xF << 2);
+	
 	return 0;
 }
 
