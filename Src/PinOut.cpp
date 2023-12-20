@@ -44,10 +44,7 @@
 //		port->CRH |= (unsigned int) 0xB << (pin * 4); 
 //	}
 //}
-
-
-
-
+/////////////////////////////////////////////////////////
 
 PinOut::PinOut( GPIO_TypeDef* portN, unsigned char pinN) : port(portN), pin(pinN)
 {
@@ -70,9 +67,9 @@ PinOut::PinOut( GPIO_TypeDef* portN, unsigned char pinN) : port(portN), pin(pinN
 	}
 	else 
 	{
-		pin &= 7;
-		port->CRH &= (uint32_t) ~(0xF << (pin * 4));
-		port->CRH |= (uint32_t) 3 << (pin * 4); 
+		unsigned char low3Bits = pin & 7;		
+		port->CRH &= (uint32_t) ~(0xF << (low3Bits * 4));
+		port->CRH |= (uint32_t) 3 << (low3Bits * 4); 
 	}	
 	pinMask = 1 << pin;
 }
@@ -89,12 +86,12 @@ void PinOut::Toggle()
 
 void PinOut::ToHigh()
 {
-	port->BRR = pinMask;
+	port->BSRR = pinMask;
 }
 
 void PinOut::ToLow()
 {
-	port->BSRR = pinMask;
+	port->BRR = pinMask;
 }
 
 bool PinOut::GetVal() const

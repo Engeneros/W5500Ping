@@ -22,10 +22,10 @@ public:
 	virtual void ToLow();
 	virtual  ~PinOut() {}
 		
-protected:
+//protected:
 	virtual void Toggle();
 	virtual void SetVal(bool val);
-	virtual bool GetVal() const = 0;
+	virtual bool GetVal() const;
 private:
 	GPIO_TypeDef* port;
 	uint8_t pin;
