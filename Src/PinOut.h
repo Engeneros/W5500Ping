@@ -21,13 +21,14 @@ public:
 //	AbstractPinOut& operator = (bool val);// { SetVal (val); return *this;}
 //	bool operator = (const AbstractPinOut& pin);// {return pin.GetVal();}
 	virtual  ~PinOut() {}
+	virtual bool GetVal() const;
 		
 protected:
 	virtual void ToHigh();
 	virtual void ToLow();
 	virtual void Toggle();
 	virtual void SetVal(bool val);
-	virtual bool GetVal() const;
+
 private:
 	GPIO_TypeDef* port;
 	uint8_t pin;

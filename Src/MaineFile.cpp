@@ -63,10 +63,11 @@ int main ()
 		DelayMs(2000.0);
 
 		*pc_13 << 0;
-
+		state = pC13;
+		
 		DelayMs(4000.0);
 		//pC13.ToHigh();
-		*pc_13 << 1;
+		*pc_13 << state ;
 		
 //		GPIOC->BSRR = 1 << 13;
 		DelayMs(10000.0);
