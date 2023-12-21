@@ -18,11 +18,13 @@ class PinOut : public AbstractPinOut
 {
 public:
 	PinOut( GPIO_TypeDef* portN, unsigned char pin );
-	virtual void ToHigh();
-	virtual void ToLow();
+//	AbstractPinOut& operator = (bool val);// { SetVal (val); return *this;}
+//	bool operator = (const AbstractPinOut& pin);// {return pin.GetVal();}
 	virtual  ~PinOut() {}
 		
-//protected:
+protected:
+	virtual void ToHigh();
+	virtual void ToLow();
 	virtual void Toggle();
 	virtual void SetVal(bool val);
 	virtual bool GetVal() const;

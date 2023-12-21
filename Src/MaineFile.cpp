@@ -49,20 +49,25 @@ int main ()
 	AbstractPinOut* pc_13;
 	pc_13 = new PinOut(GPIOC, 13);
 	PinOut pC13 = PinOut(GPIOC, 13);
+	bool state;
 	while(true)
 	{
-		pC13.ToLow();
+//		pC13.ToLow();
 //		GPIOC->BRR = 1 << 13;
 		DelayMs(400.0);
-		pC13.ToHigh();
+//		pC13.ToHigh();
 //		GPIOC->BSRR = 1 << 13;
+		pC13 << 0;
+//		state >> pC13;
+//		state = pC13;
 		DelayMs(2000.0);
-		
-		*pc_13 = 0;
+
+		*pc_13 << 0;
 
 		DelayMs(4000.0);
 		//pC13.ToHigh();
-		*pc_13 = 1;
+		*pc_13 << 1;
+		
 //		GPIOC->BSRR = 1 << 13;
 		DelayMs(10000.0);
 	}
